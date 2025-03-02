@@ -70,7 +70,7 @@ const fullscreenExit = () => {
 <style lang="less" module>
 @import '@renderer/assets/styles/layout.less';
 
-@control-btn-width: @height-toolbar * .26;
+@control-btn-width: @height-toolbar * .3;
 
 :global(.fullscreen) {
   .header {
