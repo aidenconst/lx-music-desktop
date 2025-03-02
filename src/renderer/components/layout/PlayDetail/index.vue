@@ -12,7 +12,7 @@ transition(enter-active-class="animated slideInRight" leave-active-class="animat
         div(:class="$style.info")
           img(v-if="musicInfo.pic" :class="$style.img" :src="musicInfo.pic")
           div.description(:class="['scroll', $style.description]")
-            p {{ $t('player__music_name') }}{{ musicInfo.name }}
+            p {{ musicInfo.name }}
             p {{ $t('player__music_singer') }}{{ musicInfo.singer }}
             p(v-if="musicInfo.album") {{ $t('player__music_album') }}{{ musicInfo.album }}
 
@@ -236,6 +236,7 @@ export default {
   align-items: center;
   padding: 13px;
   overflow: hidden;
+  justify-content: center;
   transition: flex-basis @transition-normal;
 }
 
@@ -243,16 +244,19 @@ export default {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  max-width: 300px;
+  max-width: 400px;
   min-height: 0;
+  width: 320px;
+  // justify-content: center;
+  // align-items: center;
 }
 .img {
   max-width: 100%;
   max-height: 80%;
   min-width: 100%;
-  box-shadow: 0 0 6px var(--color-primary-alpha-500);
-  border-radius: 6px;
-  opacity: .8;
+  box-shadow: 0 0 12px var(--color-primary-alpha-500);
+  border-radius: 12px;
+  opacity: .95;
 }
 .description {
   max-width: 300px;
@@ -263,6 +267,18 @@ export default {
     line-height: 1.5;
     font-size: 14px;
     overflow-wrap: break-word;
+    letter-spacing: 1px;
+  }
+  p:nth-child(1){
+    letter-spacing:5px;
+    color:#333;
+    font-size:26px;
+  }
+  p:nth-child(2){
+    color:#999;
+  }
+  p:nth-child(3){
+    color:#999;
   }
 }
 
