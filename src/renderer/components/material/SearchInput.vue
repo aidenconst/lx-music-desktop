@@ -57,7 +57,7 @@ export default {
   props: {
     placeholder: {
       type: String,
-      default: 'Search for something...',
+      default: '搜索...',
     },
     list: {
       type: Array,
