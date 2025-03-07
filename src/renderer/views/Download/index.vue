@@ -270,6 +270,10 @@ export default {
   flex: auto;
 }
 
+.content > div > div{
+    padding-bottom: 40px;
+}
+
 .noItem {
   position: relative;
   height: 100%;

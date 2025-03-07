@@ -1,8 +1,11 @@
 <template>
   <div :class="[$style.aside, { [$style.fullscreen]: isFullscreen }]">
-    <ControlBtns v-if="appSetting['common.controlBtnPosition'] == 'left'" />
+    <ControlBtns v-if="appSetting['common.controlBtnPosition'] == 'left'" /><!--窗口控制按钮-->
     <div v-else :class="$style.logo">L X</div>
-    <NavBar />
+    <NavBar /><!--菜单按钮-->
+    <div style="width:18%;height:100%;">
+      <layout-toolbar id="toolbar" />
+    </div>
   </div>
 </template>
 
@@ -21,16 +24,24 @@ import NavBar from './NavBar.vue'
 
 .aside {
   // box-shadow: 0 0 5px rgba(0, 0, 0, .3);
-  transition: @transition-normal;
-  transition-property: background-color;
-  // background-color: @color-theme-sidebar;
-  // background-color: @color-aside-background;
-  // border-right: 2px solid var(--color-primary);
+  // transition: @transition-normal;
+  // transition-property: background-color;
+  // // background-color: @color-theme-sidebar;
+  // // background-color: @color-aside-background;
+  // // border-right: 2px solid var(--color-primary);
+  // -webkit-app-region: drag;
+  // -webkit-user-select: none;
+  // display: flex;
+  // flex-flow: column nowrap;
   -webkit-app-region: drag;
-  -webkit-user-select: none;
+  height: 22px;
+  padding: 0;
   display: flex;
-  flex-flow: column nowrap;
-
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 10;
+  // position: fixed;
+  width: 100%;
   &.fullscreen {
     -webkit-app-region: no-drag;
     .logo {

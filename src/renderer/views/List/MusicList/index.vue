@@ -413,7 +413,9 @@ export default {
   flex-flow: column nowrap;
   flex: auto;
 }
-
+.content > div{
+  padding-bottom: 80px;
+}
 .noItem {
   position: relative;
   height: 100%;

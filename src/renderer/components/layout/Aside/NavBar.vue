@@ -3,9 +3,10 @@
     <ul :class="$style.list" role="toolbar">
       <li v-for="item in menus" :key="item.to" :class="$style.navItem" role="presentation">
         <router-link :class="[$style.link, {[$style.active]: $route.meta.name == item.name}]" role="tab" :aria-selected="$route.meta.name == item.name" :to="item.to" :aria-label="item.tips">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" :viewBox="item.iconSize" :height="item.size" :width="item.size" space="preserve">
+          <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" :viewBox="item.iconSize" :height="item.size" :width="item.size" space="preserve"> -->
+            {{ item.tips }}
             <use :xlink:href="item.icon" />
-          </svg>
+          <!-- </svg> -->
         </router-link>
       </li>
     </ul>
@@ -28,15 +29,15 @@ export default {
     const menus = computed(() => {
       const size = iconSize.value
       return [
-        {
-          to: '/search',
-          tips: t('search'),
-          icon: '#icon-search-2',
-          iconSize: '0 0 425.2 425.2',
-          size,
-          name: 'Search',
-          enable: true,
-        },
+        // {
+        //   to: '/search',
+        //   tips: t('search'),
+        //   icon: '#icon-search-2',
+        //   iconSize: '0 0 425.2 425.2',
+        //   size,
+        //   name: 'Search',
+        //   enable: true,
+        // },
         {
           to: '/songList/list',
           tips: t('song_list'),
@@ -73,15 +74,15 @@ export default {
           enable: appSetting['download.enable'],
           name: 'Download',
         },
-        {
-          to: '/setting',
-          tips: t('setting'),
-          icon: '#icon-setting',
-          iconSize: '0 0 493.23 436.47',
-          size,
-          enable: true,
-          name: 'Setting',
-        },
+        // {
+        //   to: '/setting',
+        //   tips: t('setting'),
+        //   icon: '#icon-setting',
+        //   iconSize: '0 0 493.23 436.47',
+        //   size,
+        //   enable: true,
+        //   name: 'Setting',
+        // },
       ].filter(m => m.enable)
     })
     return {
@@ -97,93 +98,59 @@ export default {
 @import '@renderer/assets/styles/layout.less';
 
 .menu {
-  flex: auto;
-  // &.controlBtnLeft {
-  //   display: flex;
-  //   flex-flow: column nowrap;
-  //   justify-content: center;
-  //   padding-bottom: @control-btn-height;
-  // }
-  // padding: 5px;
+    gap: 1vh;
+    justify-content: center;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    height:100%;
+    width:64%;
+    align-items: center;
+    font-weight: bold;
 }
 .list {
-  -webkit-app-region: no-drag;
-  // margin-bottom: 15px;
-  &:last-child {
-    margin-bottom: 0;
+  display: flex;
+    letter-spacing: 0.25rem;
+    text-decoration: none;
+    // color: #333;
+    -webkit-app-region: no-drag;
+    font-size:inherit;
+    font-weight: 700;
+    font-size:1.2em;
+    // border-radius: 0.375rem;
+    transition: 0.2s;
+    text-align: center;
+    gap:10px;
+    -webkit-user-drag: none;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  .navItem{
+    padding:8px 16px;
+    & a{
+      text-decoration:none;
+    }
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
   }
-  // background-color: pink;
-  // dt {
-  //   padding-left: 5px;
-  //   font-size: 11px;
-  //   transition: @transition-normal;
-  //   transition-property: color;
-  //   color: @color-theme-font-label;
-  //   .mixin-ellipsis-1;
-  // }
-}
-.navItem {
-  position: relative;
-  &:before {
-    content: '';
-    display: block;
-    width: 100%;
-    padding-bottom: 84%;
   }
 }
 .link {
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  width: 100%;
-  height: 100%;
-  // left: 15%;
-  // top: 15%;
-  // width: 70%;
-  // height: 70%;
-  // display: block;
-  box-sizing: border-box;
-  // text-decoration: none;
-  // border-radius: 20%;
-
-  // padding: 18px 3px;
-  // margin: 5px 0;
-  // border-left: 5px solid transparent;
-  transition: @transition-fast;
-  transition-property: background-color, opacity;
-  color: var(--color-nav-font);
-  cursor: pointer;
-  // font-size: 11.5px;
-  text-align: center;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  // border-radius: @radius-border;
-  .mixin-ellipsis-1;
-  &:before {
-    .mixin-after;
-    left: 0;
-    top: 0;
-    width: 3px;
-    height: 100%;
-    background-color: var(--color-primary-dark-200-alpha-700);
-    border-radius: 4px;
-    transform: translateX(-100%);
-    transition: transform @transition-fast;
-  }
-
   &.active {
     // border-left-color: @color-theme-active;
-    background-color: var(--color-primary-light-300-alpha-700);
-
+    // background-color: var(--color-primary-light-300-alpha-700);
+    color: var(--color-theme);
+    text-decoration:none;
     &:before {
       transform: translateX(0);
     }
 
     &:hover {
-      background-color: var(--color-primary-light-300-alpha-800);
+      color: var(--color-primary-alpha-200);
     }
   }
 
@@ -192,13 +159,13 @@ export default {
     color: var(--color-nav-font);
 
     &:not(.active) {
-      opacity: .8;
-      background-color: var(--color-primary-light-400-alpha-700);
+      opacity: .9;
+      color: var(--color-primary-alpha-200);
     }
   }
   &:active:not(.active) {
-    opacity: .6;
-    background-color: var(--color-primary-light-300-alpha-600);
+    opacity: .8;
+    color: var(--color-primary-alpha-200);
   }
 }
 

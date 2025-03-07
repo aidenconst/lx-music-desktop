@@ -1,8 +1,8 @@
 <template>
   <div id="container" class="view-container">
-    <layout-aside id="left" />
-    <div id="right">
-      <layout-toolbar id="toolbar" />
+    <layout-aside id="left" /><!--侧边菜单-->
+    <div id="right" style="height:calc(100% + 85px)">
+      <!-- <layout-toolbar id="toolbar" /> -->
       <layout-view id="view" />
       <layout-play-bar id="player" />
     </div>
@@ -122,15 +122,39 @@ body {
 }
 
 #container {
-  position: relative;
-  display: flex;
-  height: 100%;
-  background-color: var(--color-app-background);
+  display: grid;
+    grid-template-rows: 82px 8fr 84px;
+    grid-auto-columns: 1fr;
+    gap: 0px;
+    grid-auto-flow: row;
+    width: 100%;
+    height: 100%;
+  // position: relative;
+  // display: flex;
+  // height: 100%;
+  // background-color: var(--color-app-background);
 }
 
 #left {
-  flex: none;
-  width: @width-app-left;
+  // flex: none;
+  // width: @width-app-left;
+  // border-width: 0px;
+  //   border-style: solid;
+  //   background-color: #fff;
+  //   border-radius: 15px 15px 0px 0px;
+  //   border-top-left-radius: 15px;
+  //   border-top-right-radius: 15px;
+  //   border-bottom-left-radius: 0px;
+  //   border-bottom-right-radius: 0px;
+  background-color: var(--color-main-background);
+  justify-items: stretch;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  // padding: 0 5%;
+  box-shadow: 0 2px 10px var(--color-primary-alpha-800);
+  z-index: 9;
+  justify-content: center;
 }
 #right {
   flex: auto;
@@ -138,10 +162,11 @@ body {
   flex-flow: column nowrap;
   transition: background-color @transition-normal;
   background-color: var(--color-main-background);
-
+  // height: calc(100% + 84px);
   border-top-left-radius: @radius-border;
   border-bottom-left-radius: @radius-border;
   overflow: hidden;
+  // padding:20px 5%;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 }
 #toolbar, #player {
@@ -163,6 +188,4 @@ body {
 #view.show-modal > .view-container {
   opacity: .2;
 }
-
 </style>
-

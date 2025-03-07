@@ -1,15 +1,15 @@
 <template>
   <div :class="[$style.toolbar, { [$style.fullscreen]: isFullscreen }, appSetting['common.controlBtnPosition'] == 'left' ? $style.controlBtnLeft : $style.controlBtnRight]">
     <SearchInput />
-    <div v-if="appSetting['common.controlBtnPosition'] == 'left'" :class="$style.logo">L X</div>
-    <ControlBtns v-else />
+    <!-- <div v-if="appSetting['common.controlBtnPosition'] == 'left'" :class="$style.logo">L X</div>
+    <ControlBtns v-else /> -->
   </div>
 </template>
 
 <script setup>
 import { isFullscreen } from '@renderer/store'
 import { appSetting } from '@renderer/store/setting'
-import ControlBtns from './ControlBtns.vue'
+// import ControlBtns from './ControlBtns.vue'
 import SearchInput from './SearchInput.vue'
 
 </script>
@@ -20,13 +20,13 @@ import SearchInput from './SearchInput.vue'
 
 .toolbar {
   display: flex;
-  height: @height-toolbar;
+  height: 100%;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding-left: 15px;
+  // padding-left: 15px;
   -webkit-app-region: drag;
   z-index: 2;
-
   &.fullscreen {
     -webkit-app-region: no-drag;
     .logo {

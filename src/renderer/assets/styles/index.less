@@ -424,6 +424,11 @@ input, textarea {
 
 .scroll {
   overflow: auto;
+  // padding-bottom: 80px;
+  overflow-y: scroll; /* 允许垂直滚动 */
+  overflow-x: hidden; /* 隐藏水平滚动条 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 和 Edge */
   &::-webkit-scrollbar {
     width: 6px;
     height: 6px;

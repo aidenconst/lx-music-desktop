@@ -307,9 +307,14 @@ export default {
 .listsContent {
   flex: auto;
   min-width: 0;
-  overflow-y: scroll !important;
+  // overflow-y: scroll !important;
   // border-right: 1px solid rgba(0, 0, 0, 0.12);
-
+  overflow-y: scroll; /* 允许垂直滚动 */
+  overflow-x: hidden; /* 隐藏水平滚动条 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 和 Edge */
+  padding-bottom: 80px;
+  border-right: 1px solid var(--color-primary-light-100-alpha-900);
   &.sortable {
     * {
       -webkit-user-drag: element;

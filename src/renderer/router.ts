@@ -7,19 +7,19 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-      path: '/search',
-      name: 'Search',
-      component: require('./views/Search/index.vue').default,
-      meta: {
-        name: 'Search',
-      },
-    },
-    {
       path: '/songList/list',
       name: 'SongList',
       component: require('./views/songList/List/index.vue').default,
       meta: {
         name: 'SongList',
+      },
+    },
+    {
+      path: '/search',
+      name: 'Search',
+      component: require('./views/Search/index.vue').default,
+      meta: {
+        name: 'Search',
       },
     },
     {

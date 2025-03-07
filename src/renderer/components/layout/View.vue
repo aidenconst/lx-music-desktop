@@ -18,8 +18,9 @@
     position: absolute !important;
     left: 0;
     top: 0;
-    height: 100%;
-    width: 100%;
+    height: calc(100% + 58px);
+    width: calc(100% - 40px);
+    padding:20px;
   }
   // background: #fff;
   // overflow: hidden;

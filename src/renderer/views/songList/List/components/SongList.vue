@@ -94,20 +94,24 @@ defineExpose({
   display: flex;
   flex-flow: column nowrap;
   position: relative;
+  padding-bottom: 100px;
 }
 
 .listContent {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 10px;
   width: 100%;
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
   font-size: 14px;
   box-sizing: border-box;
-  padding: 15px 15px 0;
-
+  padding: 0px 15px 90px 15px;
+  overflow-y: scroll; /* 允许垂直滚动 */
+  overflow-x: hidden; /* 隐藏水平滚动条 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 和 Edge */
   ul {
     display: flex;
     flex-flow: row wrap;

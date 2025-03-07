@@ -40,7 +40,6 @@ export default {
       isActiveTransition,
       handleTransitionEnd,
     } = usePlayProgress()
-
     let timeout = null
     const handlMsEnter = () => {
       if (timeout) {

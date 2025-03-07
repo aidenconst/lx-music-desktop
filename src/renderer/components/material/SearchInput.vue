@@ -16,20 +16,18 @@
           @keyup.arrow-up.prevent="handleKeyUp"
           @contextmenu="handleContextMenu"
         >
-        <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
-          <button v-show="text" type="button" @click="handleClearList">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" height="100%" viewBox="0 0 24 24" space="preserve">
-              <use xlink:href="#icon-window-close" />
+        <!-- <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut"> -->
+          <button type="button" @click="btnSearch">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" height="100%" :viewBox="text?'0 0 24 24':'0 0 30.239 30.239'" space="preserve">
+              <use :xlink:href="text?'#icon-window-close':'#icon-search'" />
             </svg>
           </button>
-        </transition>
-        <button type="button" @click="handleSearch">
-          <slot>
+        <!-- </transition> -->
+          <!-- <button v-show="!text" type="button" @click="handleSearch">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" height="100%" viewBox="0 0 30.239 30.239" space="preserve">
               <use xlink:href="#icon-search" />
             </svg>
-          </slot>
-        </button>
+          </button> -->
       </div>
       <div v-if="list" :class="$style.list" :style="listStyle">
         <ul ref="dom_list" @mouseleave="selectIndex = -1">
@@ -52,7 +50,7 @@
 import { clipboardReadText } from '@common/utils/electron'
 import { HOTKEY_COMMON } from '@common/hotKey'
 import { appSetting } from '@renderer/store/setting'
-
+import { useRouter } from 'vue-router'
 export default {
   props: {
     placeholder: {
@@ -85,6 +83,7 @@ export default {
   emits: ['update:modelValue', 'event'],
   data() {
     return {
+      router: useRouter(),
       isShow: false,
       text: '',
       selectIndex: -1,
@@ -193,6 +192,18 @@ export default {
       this.$emit('update:modelValue', this.text)
       this.sendEvent('submit')
     },
+    gosearch() {
+      this.router.push('/search')
+    },
+    btnSearch() {
+      if (this.text) {
+        console.log('text:', true)
+        this.handleClearList()
+      } else {
+        console.log('text:', false)
+        this.gosearch()
+      }
+    },
   },
 }
 </script>
@@ -203,7 +214,7 @@ export default {
 
 .container {
   position: relative;
-  width: 35%;
+  width: 85%;
   height: @height-toolbar * 0.52;
   -webkit-app-region: no-drag;
 }
@@ -215,17 +226,19 @@ export default {
   transition: box-shadow .4s ease, background-color @transition-normal;
   display: flex;
   flex-flow: column nowrap;
-  background-color: var(--color-primary-light-300-alpha-700);
-
+  // background-color: var(--color-primary-light-300-alpha-700);
+  border: 1px solid var(--color-primary-light-300-alpha-800);
   &.active {
-    background-color: var(--color-primary-light-600-alpha-100);
-    box-shadow: 0 1px 5px 0 rgba(0,0,0,.2);
+    border: 1px solid var(--color-primary-alpha-100);
+    // box-shadow: 0 1px 5px 0 rgba(0,0,0,.2);
     .form {
+      width:100%;
       input {
         border-bottom-left-radius: 0;
-
+        width:100%;
       }
       button {
+        // margin-right: -70px;
         border-bottom-right-radius: 0;
       }
     }
@@ -234,16 +247,17 @@ export default {
     display: flex;
     height: @height-toolbar * 0.52;
     position: relative;
+    width:100%;
+    padding: 0px 70px 0 0px;
     input {
       flex: auto;
       // border: 1px solid;
-      border-top-left-radius: 3px;
-      border-bottom-left-radius: 3px;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
       background-color: transparent;
       // border-bottom: 2px solid var(--color-primary);
       // border-color: var(--color-primary);
       border: none;
-
       outline: none;
       // height: @height-toolbar * .7;
       padding: 0 5px;
@@ -253,6 +267,7 @@ export default {
       &::placeholder {
         color: var(--color-button-font);
         font-size: .98em;
+        opacity: .6;
       }
     }
     button {
@@ -264,24 +279,27 @@ export default {
       cursor: pointer;
       height: 100%;
       padding: 6px 7px;
-      color: var(--color-button-font);
+      color: var(--color-primary-light-300-alpha-300);
       transition: background-color .2s ease;
-
+      margin-left: -120px;
+      // margin-right: -70px;
       &:last-child {
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;
       }
-
       &:hover {
-        background-color: var(--color-button-background-hover);
+        color: var(--color-primary-alpha-100);
       }
       &:active {
-        background-color: var(--color-button-background-active);
+        color: var(--color-primary-alpha-100);
       }
     }
   }
   .list {
-    // background-color: @color-search-form-background;
+    box-shadow: 0px -12px 43px 14px rgba(0, 0, 0, 0.1);
+    background: var(--color-primary-alpha-900); /* 白色半透明遮罩 */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     font-size: 13px;
     transition: .3s ease;
     height: 0;

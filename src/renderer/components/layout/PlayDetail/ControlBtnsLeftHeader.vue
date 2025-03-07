@@ -131,10 +131,10 @@ const fullscreenExit = () => {
     }
 
     button {
-      width: @control-btn-width;
-      height: @control-btn-width;
+      width: (@control-btn-width * 0.8);
+      height: (@control-btn-width * 0.8);
       border-radius: 50%;
-      color: var(--color-font);
+      color: var(--color-1000);
       + button {
         margin-right: (@control-btn-width / 2);
       }

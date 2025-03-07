@@ -187,7 +187,16 @@ export default {
 
 .toc {
   flex: 0 0 16%;
+  box-sizing: border-box;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
   overflow-y: scroll;
+  scrollbar-width: none;
+  padding-bottom: 70px;
+  padding-top: 10px;
+  border-right: 1px solid var(--color-primary-light-100-alpha-900);
 }
 .tocH2 {
   line-height: 1.5;
@@ -229,14 +238,17 @@ export default {
 // }
 
 .setting {
-  padding: 0 15px 15px;
+  padding: 5px 15px 100px 15px;
   font-size: 14px;
   box-sizing: border-box;
-  overflow-y: auto;
+  // overflow-y: auto;
   height: 100%;
   position: relative;
   width: 100%;
-
+  overflow: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   :global {
     dt {
       border-left: 5px solid var(--color-primary-alpha-700);

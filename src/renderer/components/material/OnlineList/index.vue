@@ -311,6 +311,14 @@ export default {
   min-height: 0;
   position: relative;
   height: 100%;
+  // padding-bottom: 80px;
+  & > div{
+    overflow-y: scroll; /* 允许垂直滚动 */
+    overflow-x: hidden; /* 隐藏水平滚动条 */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 和 Edge */
+    padding-bottom: 80px !important;
+  }
 }
 
 .pagination {

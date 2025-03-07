@@ -125,7 +125,7 @@ export default {
 }
 
 .progressBar2 {
-  background-color: var(--color-primary-light-100-alpha-400);
+  background-color: var(--color-primary-light-100-alpha-100);
   will-change: transform;
 }
 
