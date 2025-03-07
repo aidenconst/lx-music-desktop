@@ -1,5 +1,7 @@
 <p align="center"><a href="https://github.com/lyswhut/lx-music-desktop"><img width="200" src="https://github.com/lyswhut/lx-music-desktop/blob/master/doc/images/icon.png" alt="lx-music logo"></a></p>
 
+### UI调整
+<img src="./doc/images/333.PNG">
 <h1 align="center">LX Music 桌面版</h1>
 
 <p align="center">
