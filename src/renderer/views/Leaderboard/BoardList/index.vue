@@ -109,12 +109,15 @@ defineExpose({ hideMenu: handleMenuClick })
 }
 .listsItem {
   position: relative;
-  transition: .3s ease;
+  transition: 0.3s ease;
   transition-property: color, background-color;
   background-color: transparent;
   &:hover:not(.active) {
     background-color: var(--color-primary-background-hover);
     cursor: pointer;
+  }
+  &:hover {
+    transform: translateX(2px);  /* 上移5px */
   }
   &.active {
     // background-color:

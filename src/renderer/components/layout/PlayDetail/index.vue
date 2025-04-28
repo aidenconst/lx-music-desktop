@@ -153,9 +153,10 @@ export default {
   // border-left: 12px solid var(--color-primary-alpha-900);
   -webkit-app-region: no-drag;
   contain: strict;
-
   box-sizing: border-box;
-
+  // background: rgba(255, 255, 255, 0.1); /* 白色半透明遮罩 */
+  // -webkit-backdrop-filter: blur(10px);
+  // backdrop-filter: blur(10px);
   * {
     box-sizing: border-box;
   }
@@ -247,6 +248,7 @@ export default {
   max-width: 400px;
   min-height: 0;
   width: 320px;
+  transition: all 0.3s ease;
   // justify-content: center;
   // align-items: center;
 }
@@ -270,7 +272,7 @@ export default {
     letter-spacing: 1px;
   }
   p:nth-child(1){
-    letter-spacing:5px;
+    letter-spacing:2px;
     color:#333;
     font-size:26px;
   }

@@ -5,7 +5,7 @@ import { formatSinger, objStr2JSON } from './util'
 // let requestObj_list
 export default {
   limit_list: 36,
-  limit_song: 1000,
+  limit_song: 100,
   filterListDetail(rawList, albumName, albumId) {
     // console.log(rawList)
     // console.log(rawList.length, rawList2.length)

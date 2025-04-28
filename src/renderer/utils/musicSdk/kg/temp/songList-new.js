@@ -10,7 +10,7 @@ export default {
   _requestObj_listInfo: null,
   _requestObj_list: null,
   _requestObj_listRecommend: null,
-  listDetailLimit: 10000,
+  listDetailLimit: 1000,
   currentTagInfo: {
     id: undefined,
     info: undefined,

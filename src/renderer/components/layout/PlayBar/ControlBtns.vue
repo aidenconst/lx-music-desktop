@@ -61,7 +61,8 @@ export default {
   display: flex;
   flex-flow: row nowrap;
   gap: 10px;
-
+  width:19%;
+  justify-content: flex-end;
   button {
     color: var(--color-button-font);
   }

@@ -104,7 +104,7 @@ export default {
     display: flex;
     justify-content: center;
     height:100%;
-    width:64%;
+    width:60%;
     align-items: center;
     font-weight: bold;
 }

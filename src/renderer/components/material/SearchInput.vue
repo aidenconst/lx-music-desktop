@@ -17,7 +17,7 @@
           @contextmenu="handleContextMenu"
         >
         <!-- <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut"> -->
-          <button type="button" @click="btnSearch">
+          <button :title="text ? $t('search__del') : $t('list__search')" type="button" @click="btnSearch">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" height="100%" :viewBox="text?'0 0 24 24':'0 0 30.239 30.239'" space="preserve">
               <use :xlink:href="text?'#icon-window-close':'#icon-search'" />
             </svg>

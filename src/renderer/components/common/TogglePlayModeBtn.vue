@@ -101,10 +101,9 @@ const toggleMode = (mode) => {
   flex: none;
   height: 100%;
 }
-
 .btn {
   position: relative;
-  // color: var(--color-button-font);
+  color: var(--color-button-font);
   justify-content: center;
   align-items: center;
   transition: color @transition-normal;

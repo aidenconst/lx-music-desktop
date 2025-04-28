@@ -3,7 +3,7 @@
     <ControlBtns v-if="appSetting['common.controlBtnPosition'] == 'left'" /><!--窗口控制按钮-->
     <div v-else :class="$style.logo">L X</div>
     <NavBar /><!--菜单按钮-->
-    <div style="width:18%;height:100%;">
+    <div style="width:20%;height:100%;">
       <layout-toolbar id="toolbar" />
     </div>
   </div>
